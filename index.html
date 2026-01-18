@@ -168,10 +168,48 @@
             .wisp-corner img { width: 300px; }
             .wisp-corner .message { font-size: 2rem; }
         }
+
+        .footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.footer span {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 6px 14px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+    animation: footerGlow 3s ease-in-out infinite;
+}
+
+@keyframes footerGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer span {
+        font-size: 0.95rem;
+        padding: 5px 10px;
+    }
+}
+
+        
     </style>
 </head>
 <body>
-    <audio id="bgMusic" controls autoplay loop style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000;">
+    <audio id="bgMusic" controls autoplay loop style="position: fixed; bottom: 60px; left: 50%; transform: translateX(-50%); z-index: 1000;">
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
     
@@ -349,7 +387,7 @@
 
         // Configurar volumen al 50% y reproducir automáticamente
         const music = document.getElementById('bgMusic');
-        music.volume = 0.5;
+        music.volume = 0.35;
         
         // Intentar reproducir automáticamente
         music.play().catch(() => {
@@ -401,5 +439,9 @@
             canvas.height = window.innerHeight;
         });
     </script>
+    <footer class="footer">
+    <span>🎉 De parte de <strong>Emy0</strong> & <strong>Tropezonida</strong> 🎉</span>
+</footer>
+
 </body>
 </html>
